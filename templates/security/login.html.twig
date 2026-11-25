@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="row justify-content-center"><div class="col-md-5 card shadow-sm p-4">
+    <h2>Connexion</h2>
+    {% if error %}<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>{% endif %}
+    <form method="post">
+        <label class="form-label">Email</label>
+        <input type="email" value="{{ last_username }}" name="_username" class="form-control mb-3" required autofocus>
+        <label class="form-label">Mot de passe</label>
+        <input type="password" name="_password" class="form-control mb-3" required>
+        <input type="hidden" name="_target_path" value="{{ path('app_home') }}">
+        <button class="btn btn-primary w-100" type="submit">Se connecter</button>
+    </form>
+</div></div>
+{% endblock %}

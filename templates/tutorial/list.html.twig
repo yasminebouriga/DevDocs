@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">{{ title }}</h1>
+
+<div class="row g-4">
+    {% for tutorial in tutorials %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tutorial.title }}</h5>
+                    <p class="card-text text-muted small">Par {{ tutorial.author.pseudonyme }}</p>
+                    <a href="{{ path('app_tutorial_show', {slug: tutorial.slug}) }}" class="btn btn-outline-primary btn-sm">Lire</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="alert alert-warning">Aucun tutoriel trouvé dans cette section.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ isEdit ? 'Modifier le tutoriel' : 'Nouveau tutoriel' }}{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+            <h2 class="mb-4">{{ isEdit ? 'Modifier le tutoriel' : 'Rédiger un nouveau tutoriel' }}</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-success mt-3">{{ isEdit ? 'Mettre à jour' : 'Publier' }}</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
